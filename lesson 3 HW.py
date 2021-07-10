@@ -1,22 +1,21 @@
 import random
-num=random.randint(1,20)
-t=0
-t=t+1
 
 x=input('請猜一個數字')
 x=int(x)
-while x>num:
-    print('數字太大了,請再猜一次')
-    x=input('請再猜一次')
+num=random.randint(1,20)
+t=1
+
+while t<5 and x!=num:
+    if x>num:
+        print('數字太大了,請再猜一次')
+    elif x<num:
+        print('數字太小了,還剩五次機會')
+    x=input('請輸入大小')
     x=int(x)
-while x<num:
-    print('數字太小了,還剩五次機會')
-    x=input('請再猜一次')
-    x=int(x)
-while t==5:
-    print('很抱歉，沒有機會了') 
-    x=input('請重試')
-    x=int(x)
-if x==num:
-    x=int(x)
+    t=t+1
+    
+if t==5:
     print('恭喜答對!')
+    print ('你玩了',t,'次')
+elif x!=num:
+    print('很抱歉，沒有機會了')
